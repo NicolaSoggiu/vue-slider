@@ -44,10 +44,17 @@ const app = Vue.createApp({
         this.activeIndex = this.images.length - 1;
       }
     },
-
     showMiniature(index) {
       this.activeIndex = index;
     },
+  },
+  mounted() {
+    setInterval(() => {
+      this.activeIndex++;
+      if (this.activeIndex >= this.images.length) {
+        this.activeIndex = 0;
+      }
+    }, 4000);
   },
 });
 app.mount(".container");

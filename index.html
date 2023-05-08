@@ -26,14 +26,21 @@
       <div class="carousel">
         <div class="highlighted">
           <img
-            v-for="(image, index) in images.image"
-            :key="image"
-            :src="images.image"
+            v-for="(image, index) in images"
+            :key="index"
+            :src="image.image"
             alt=""
-            class="{active: index == activeIndex}"
+            :class="{active: index === activeIndex}"
           />
         </div>
         <div class="thumbs">
+          <img
+            v-for="(image, index) in images"
+            :src="image.image"
+            :alt=""
+            :key="index"
+            :class="{ active: index === activeIndex }"
+          />
           <div class="controls">
             <i
               class="bi bi-arrow-up-circle-fill btn btn-up"

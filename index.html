@@ -9,6 +9,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
     />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="js/script-vue.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/functions.js" defer></script>
     <link rel="stylesheet" href="assets/style.css" />
@@ -22,11 +24,25 @@
   <body>
     <div class="container">
       <div class="carousel">
-        <div class="highlighted"></div>
+        <div class="highlighted">
+          <img
+            v-for="(image, index) in images.image"
+            :key="image"
+            :src="images.image"
+            alt=""
+            class="{active: index == activeIndex}"
+          />
+        </div>
         <div class="thumbs">
           <div class="controls">
-            <i class="bi bi-arrow-up-circle-fill btn btn-up"></i>
-            <i class="bi bi-arrow-down-circle-fill btn btn-down"></i>
+            <i
+              class="bi bi-arrow-up-circle-fill btn btn-up"
+              @click="showPrevSlides"
+            ></i>
+            <i
+              class="bi bi-arrow-down-circle-fill btn btn-down"
+              @click="showNextSlides"
+            ></i>
           </div>
         </div>
       </div>

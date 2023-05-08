@@ -38,9 +38,9 @@
           <img
             v-for="(image, index) in images"
             :src="image.image"
-            :alt=""
             :key="index"
             :class="{ active: index === activeIndex }"
+            @click="showMiniature(index)"
           />
           <h3>{{ images[activeIndex].title }}</h3>
           <p>{{ images[activeIndex].text }}</p>

@@ -44,6 +44,10 @@ const app = Vue.createApp({
         this.activeIndex = this.images.length - 1;
       }
     },
+
+    showMiniature(index) {
+      this.activeIndex = index;
+    },
   },
 });
 app.mount(".container");
